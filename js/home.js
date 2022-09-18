@@ -23,9 +23,9 @@ const showspends = () => {
   const spendRecord = getEById("spendRecord");
   const date3 = new Date().toISOString();
   const fixedDate3 = date3.slice(0, 10);
-  console.log(spendCount, "this is form show spend");
   for (let i = 1; i <= spendCount; i++) {
     const spendData = JSON.parse(localStorage.getItem(`spends${i}`));
+    console.log(JSON.parse(localStorage.getItem(`spends${i}`)));
     const spendTr = document.createElement("tr");
     console.log(spendData);
     spendTr.innerHTML = `

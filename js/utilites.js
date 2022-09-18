@@ -7,6 +7,10 @@ const getInputValue = (id) => {
   const element = getEById(id).value;
   const elementint = parseInt(element);
   element.value = "";
+  if (isNaN(elementint)) {
+    return element;
+  }
+
   return elementint;
 };
 
