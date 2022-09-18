@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta reason="viewport" content="width=device-width, initial-scale=1">
     <title>Sinan Computer</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
@@ -48,9 +48,11 @@
                     <div class="mt-4">
                         <a class="theme-bg-color text-white py-2 px-4 mt-2 me-2 rounded text-decoration-none"
                             href="pages/calculate.html">Calculate</a>
-                        <a class="theme-bg-color text-white py-2 px-4 mt-2 rounded text-decoration-none"
+                        <a class="theme-bg-color text-white py-2 px-4 mt-2 me-2 rounded text-decoration-none"
                             href="pages/loan.html">Loan
                             Book</a>
+                        <a class="theme-bg-color text-white py-2 px-4 mt-2 rounded text-decoration-none"
+                            href="pages/e_bill.html">Bill REC</a>
 
                     </div>
 
@@ -64,23 +66,46 @@
     </header>
 
     <main>
-        <section class="container mt-5 hight-100">
+        <section class="container mt-5 hight-50 mb-5">
             <div class="header pb-5 mb-2">
-                <h2 class="text-color fs-60 text-center">Money Reports</h2>
+                <h2 class="text-color fs-60 text-center">Daily Spend Reports</h2>
             </div>
+            <div class="container  d-flex align-items-center justify-content-center flex-column">
+                <div class="container w-50 row g-3">
+                    <div class="row g-3">
+
+                        <div class="col-md-12">
+                            <label for="reason" class="form-label"><b class="text-color">Reason</b></label>
+                            <input type="text" class="form-control" id="reason">
+                        </div>
+                        <div class="col-md-12">
+                            <label for="spendAmount" class="form-label"><b class="text-color">Amount</b></label>
+                            <input type="text" class="form-control" id="spendAmount">
+                        </div>
+
+
+                        <div class="col-12">
+                            <button
+                                class="border border-0 theme-bg-color text-white py-2 px-4 mt-2 rounded text-decoration-none d-block mx-auto"
+                                onclick="saveSpend()">Add Cost</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <section class="container  hight-100 mt-5 pt-5">
+
             <div class="container">
                 <table class="table table-striped">
                     <thead>
                         <tr>
                             <th scope="col" class="text-color fw-bolder">Date</th>
-                            <th scope="col" class="text-color fw-bolder">Total Cash</th>
-                            <th scope="col" class="text-color fw-bolder">Bkash</th>
-                            <th scope="col" class="text-color fw-bolder">Nagad</th>
-                            <th scope="col" class="text-color fw-bolder">Rocket</th>
-                            <th scope="col" class="text-color fw-bolder">Grand Total</th>
+                            <th scope="col" class="text-color fw-bolder">Reason</th>
+                            <th scope="col" class="text-color fw-bolder">Amount</th>
                         </tr>
                     </thead>
-                    <tbody id="moneyRecordHome">
+                    <tbody id="spendRecord">
 
 
                     </tbody>
@@ -98,7 +123,10 @@
         integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
         crossorigin="anonymous"></script>
     <script src="js/utilites.js"></script>
+    <script src="js/calculate.js"></script>
     <script src="js/home.js"></script>
+    <script src="js/loan.js"></script>
+    <script src="js/bill.js"></script>
 </body>
 
 </html>

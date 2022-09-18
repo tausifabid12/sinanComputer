@@ -1,25 +1,43 @@
-if (localStorage.getItem("clickCount") === null) {
-  localStorage.setItem("clickCount", 0);
+if (localStorage.getItem("spendCount") === null) {
+  localStorage.setItem("spendCount", 0);
 }
-let clickCount = parseInt(localStorage.getItem("clickCount"));
-const showRecordsHome = () => {
-  const itemNum = parseInt(localStorage.getItem("clickCount"));
-  const moneyRecordHome = document.getElementById("moneyRecordHome");
-  const date = new Date().toISOString();
-  const fixedDate = date.slice(0, 10);
-  for (let i = 1; i <= itemNum; i++) {
-    const data = JSON.parse(localStorage.getItem(`calculationTotal${i}`));
-    const tr = document.createElement("tr");
-    tr.innerHTML = `
-        <td scope="row">${fixedDate}</td>
-        <td>${data.totalCash}</td>
-        <td>${data.bkash}</td>
-        <td>${data.nagad}</td>
-        <td>${data.rocket}</td>
-        <td>${data.grandTotal}</td>
-        
-        `;
-    moneyRecordHome.prepend(tr);
+let spendCount = parseInt(localStorage.getItem("spendCount"));
+console.log(spendCount, "this is form to");
+
+const saveSpend = () => {
+  spendCount++;
+  const reason = getInputValue("reason");
+  const spendAmount = getInputValue("spendAmount");
+  const spendObj = {
+    reason: reason,
+    spendAmount: spendAmount,
+  };
+  const sringifyspend = JSON.stringify(spendObj);
+  localStorage.setItem(`spends${spendCount}`, sringifyspend);
+  localStorage.setItem("spendCount", spendCount);
+  location.reload();
+};
+
+const showspends = () => {
+  const spendCount = parseInt(localStorage.getItem("spendCount"));
+  const spendRecord = getEById("spendRecord");
+  const date3 = new Date().toISOString();
+  const fixedDate3 = date3.slice(0, 10);
+  console.log(spendCount, "this is form show spend");
+  for (let i = 1; i <= spendCount; i++) {
+    const spendData = JSON.parse(localStorage.getItem(`spends${i}`));
+    const spendTr = document.createElement("tr");
+    console.log(spendData);
+    spendTr.innerHTML = `
+      <td scope="row">${fixedDate3}</td>
+      <td>${spendData.reason}</td>
+      <td>${spendData.spendAmount}</td>
+    
+    
+  
+      `;
+    spendRecord.prepend(spendTr);
   }
 };
-showRecordsHome();
+
+showspends();

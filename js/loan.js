@@ -5,12 +5,12 @@ let lendItem = parseInt(localStorage.getItem("lendItem"));
 
 const calculateLend = () => {
   lendItem++;
-  const payeeName = document.getElementById("name");
-  const payeeNameValue = payeeName.value;
-  payeeName.value = "";
+
+  const payeeName = getInputValue("name");
+
   const amount = getInputValue("amount");
 
-  const lendObj = { payeeName: payeeNameValue, amount: amount };
+  const lendObj = { payeeName: payeeName, amount: amount };
   const sringifylend = JSON.stringify(lendObj);
   localStorage.setItem(`lends${lendItem}`, sringifylend);
   localStorage.setItem("lendItem", lendItem);

@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta Consumar no.="viewport" content="width=device-width, initial-scale=1">
     <title>Sinan Computer</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
@@ -11,34 +11,41 @@
 </head>
 
 <body>
-
     <section class="hero-section">
         <div class="text-end">
             <a class="theme-bg-color text-white py-2 px-4  rounded text-decoration-none" href="../index.html">Home</a>
             <a class="theme-bg-color text-white py-2 px-4  rounded text-decoration-none"
                 href="calculate.html">Calculate</a>
-            <a class="theme-bg-color text-white py-2 px-4 mt-2 rounded text-decoration-none" href="e_bill.html">Bill
-                REC</a>
+            <a class="theme-bg-color text-white py-2 px-4 rounded text-decoration-none" href="loan.html">Loan
+                Reports</a>
         </div>
         <div class="container  d-flex align-items-center justify-content-center flex-column">
-            <h2 class="text-color text-center fs-60 pb-5">Lends</h2>
+            <h2 class="text-color text-center fs-60 pb-5">Bill Record</h2>
             <div class="container w-50 row g-3">
                 <div class="row g-3">
 
                     <div class="col-md-12">
-                        <label for="name" class="form-label"><b class="text-color">Name</b></label>
-                        <input type="text" class="form-control" id="name">
+                        <label for="consumarNo" class="form-label"><b class="text-color">Consumar no.</b></label>
+                        <input type="text" class="form-control" id="consumarNo">
                     </div>
                     <div class="col-md-12">
-                        <label for="amount" class="form-label"><b class="text-color">Amount</b></label>
-                        <input type="text" class="form-control" id="amount">
+                        <label for="mounth" class="form-label"><b class="text-color">mounth</b></label>
+                        <input type="text" class="form-control" id="mounth">
+                    </div>
+                    <div class="col-md-12">
+                        <label for="billAmount" class="form-label"><b class="text-color">Amount</b></label>
+                        <input type="text" class="form-control" id="billAmount">
+                    </div>
+                    <div class="col-md-12">
+                        <label for="trxId" class="form-label"><b class="text-color">Trx id</b></label>
+                        <input type="text" class="form-control" id="trxId">
                     </div>
 
 
                     <div class="col-12">
                         <button
                             class="border border-0 theme-bg-color text-white py-2 px-4 mt-2 rounded text-decoration-none d-block mx-auto"
-                            onclick="calculateLend()">Add to lend book</button>
+                            onclick="storeBill()">Add Bill</button>
                     </div>
                 </div>
 
@@ -48,19 +55,21 @@
 
     <section class="container  hight-100">
         <div class="header pb-5 mb-2">
-            <h2 class="text-color fs-60 text-center">Lend Reports</h2>
+            <h2 class="text-color fs-60 text-center">Bill Records</h2>
         </div>
         <div class="container">
             <table class="table table-striped">
                 <thead>
                     <tr>
                         <th scope="col" class="text-color fw-bolder">Date</th>
-                        <th scope="col" class="text-color fw-bolder">Name</th>
+                        <th scope="col" class="text-color fw-bolder">Consumar no.</th>
+                        <th scope="col" class="text-color fw-bolder">mounth</th>
                         <th scope="col" class="text-color fw-bolder">Amount</th>
+                        <th scope="col" class="text-color fw-bolder">Trx id</th>
 
                     </tr>
                 </thead>
-                <tbody id="lendRecordBook">
+                <tbody id="billRecord">
 
 
                 </tbody>
@@ -73,19 +82,14 @@
 
 
 
-
-
-
-
-
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
         crossorigin="anonymous"></script>
     <script src="../js/utilites.js"></script>
-    <script src="../js/calculate.js"></script>
     <script src="../js/home.js"></script>
+    <script src="../js/calculate.js"></script>
     <script src="../js/loan.js"></script>
     <script src="../js/bill.js"></script>
+</body>
 
 </html>
